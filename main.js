@@ -8,6 +8,8 @@ console.log("Se ha completado la feature B definitivamente");
 console.log("Se ha creado la funcionalidad C");
 
 
+console.log("otro desarrollo de un compañero");
+
 console.log("Otra funcionalidad de un compañero");
 
 function menu(){
