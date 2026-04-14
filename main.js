@@ -6,6 +6,8 @@ console.log("More changes");
 console.log("Se ha añadido la feature A");
 console.log("Se ha completado la feature B");
 
+console.log("Otra funcionalidad de un compañero");
+
 function menu(){
   console.log("Soy el menú");  
 }
