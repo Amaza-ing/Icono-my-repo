@@ -7,4 +7,8 @@ function menu(){
   console.log("Soy el menú");  
 }
 
+function camera() {
+  console.log("Usando la cámara");  
+}
+
 console.log("goodbye");
