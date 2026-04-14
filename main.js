@@ -4,6 +4,7 @@ console.log("More changes");
 // esto es otro cambio
 
 console.log("Se ha añadido la feature A");
+console.log("Otra funcionalidad de un compañero");
 
 
 function menu(){
