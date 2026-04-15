@@ -11,6 +11,10 @@ console.log("otro desarrollo de un compañero");
 
 console.log("asdfasdf Otra funcionalidad de un compañero");
 
+function f() {
+  // asdfasdfasdfadf
+}
+
 function menu() {
   console.log("Soy el menú");
 }
