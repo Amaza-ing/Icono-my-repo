@@ -210,3 +210,92 @@ Creado por Sara.
 
 Markdown está pensado para ser fácil de leer y de escribir. No hace falta memorizarlo todo al principio. Con aprender títulos, listas, enlaces y bloques de código ya puedes hacer la mayoría de documentos básicos.
 ```
+
+
+hooks
+
+############################# pre-commit:
+
+```sh
+#!/bin/sh
+echo "Hola desde el hook"
+exit 0
+```
+-------------------------------------------------------
+
+```sh
+#!/bin/sh
+
+if [ -f .env ]; then
+  echo "Error: no hagas commit del archivo .env"
+  exit 1
+fi
+
+echo "Comprobación superada"
+exit 0
+```
+--------------------------------------------------------
+```sh
+#!/bin/sh
+
+echo "Ejecutando comprobación..."
+
+if grep -R "console.log(" . --exclude-dir=.git --include="*.js" > /dev/null; then
+  echo "Error: has dejado un console.log en archivos JS"
+  exit 1
+fi
+
+echo "Todo correcto"
+exit 0
+```
+
+############################# commit-msg:
+```sh
+#!/bin/sh
+
+commit_msg_file="$1"
+commit_msg=$(cat "$commit_msg_file")
+
+if [ ${#commit_msg} -lt 10 ]; then
+  echo "Error: el mensaje del commit debe tener al menos 10 caracteres"
+  exit 1
+fi
+
+exit 0
+```
+--------------------------------------------------------
+```
+git commit -m "mensaje corto" --no-verify
+```
+--------------------------------------------------------
+```sh
+#!/bin/sh
+
+commit_msg_file="$1"
+commit_msg=$(cat "$commit_msg_file")
+
+case "$commit_msg" in
+  feat:*|fix:*|docs:*)
+    exit 0
+    ;;
+  *)
+    echo "Error: el mensaje debe empezar por feat:, fix: o docs:"
+    exit 1
+    ;;
+esac
+```
+
+############################# pre-push:
+```sh
+#!/bin/sh
+
+branch=$(git branch --show-current)
+
+if [ "$branch" = "master" ]; then
+  echo "Error: no puedes hacer push directamente a master"
+  exit 1
+fi
+
+echo "Push permitido en la rama $branch"
+exit 0
+```
