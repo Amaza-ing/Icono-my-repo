@@ -20,6 +20,4 @@ function camera() {
 
 function login() {}
 
-// asdfasdfasdf
-
 function ad() {}
