@@ -15,7 +15,7 @@ function menu() {
 }
 
 function camera() {
-  console.log("Usando la cámara");
+  console.log("Usando la cámara!");
 }
 
 function login() {
