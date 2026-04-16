@@ -18,6 +18,8 @@ function camera() {
   console.log("Usando la cámara");
 }
 
-function login() {}
+function login() {
+  console.log("Login");  
+}
 
 function ad() {}
