@@ -1,0 +1,10 @@
+name: Hola!
+
+on: push
+
+jobs:
+  saludo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar saludo
+        run: echo "Mi workflow se ha ejecutado"
