@@ -8,13 +8,13 @@ jobs:
     steps:
       - name: Mostrar saludo
         run: echo "Mi workflow se ha ejecutado"
-  
+
   mostrar_archivos:
     runs-on: ubuntu-latest
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
-      
+
       - name: Listar archivos
         run: ls
 
@@ -23,3 +23,11 @@ jobs:
     steps:
       - name: Mostrar info del sistema
         run: uname -a
+
+  mostrar_secreto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar mensaje
+        run: echo "Secreto cargado correctamente" ${{ secrets.MY_TOKEN }}
+        env:
+          TOKEN: ${{ secrets.MY_TOKEN }}
